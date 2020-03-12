@@ -7,8 +7,10 @@ const config = {
     devtool: 'source-map',
     entry: './src/index.ts',
     output: {
-        filename: 'index.js',
+        filename: 'myComponentLib.js',
         path: resolve(__dirname, "./build"),
+        library: 'myComponentLib',
+        libraryTarget: 'commonjs2',
     },
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.jsx'],
@@ -44,7 +46,15 @@ const config = {
     },
     plugins: [
         cssExtract,
-    ]
+    ],
+    externals: {
+        react: 'react',
+        'react-dom': 'react-dom',
+    },
+    optimization: {
+        splitChunks: false,
+        sideEffects: false,
+    },
 };
 
 module.exports = config;

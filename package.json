@@ -7,6 +7,10 @@
     "prebuild": "rm -rf build",
     "build": "webpack --mode=production"
   },
+  "sideEffects": [
+    "*.css",
+    "*.scss"
+  ],
   "keywords": [],
   "author": "Eric Masiello <eric.j.masiello@gmail.com> (http://synbydesign.com/)",
   "license": "MIT",
