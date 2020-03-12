@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+      "noImplicitAny": true,
+      "removeComments": true,
+      "sourceMap": true,
+      "esModuleInterop": true,
+      "target": "ESNEXT",
+      "jsx": "react",
+      "strict": true,
+      "allowSyntheticDefaultImports": true,
+      "skipLibCheck": true
+    },
+    "include": ["src/**/*"]
+  }
+  
