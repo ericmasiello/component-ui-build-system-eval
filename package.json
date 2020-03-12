@@ -2,10 +2,10 @@
   "name": "ui-lib-eval",
   "version": "1.0.0",
   "description": "",
-  "main": "build/myComponentLib.js",
+  "main": "build/index.js",
   "scripts": {
     "prebuild": "rm -rf build",
-    "build": "webpack --mode=production"
+    "build": "npx babel src --extensions '.ts,.tsx' --out-dir build"
   },
   "sideEffects": [
     "*.css",
@@ -15,7 +15,9 @@
   "author": "Eric Masiello <eric.j.masiello@gmail.com> (http://synbydesign.com/)",
   "license": "MIT",
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.7",
+    "@babel/plugin-transform-runtime": "^7.8.3",
     "@babel/preset-env": "^7.8.7",
     "@babel/preset-react": "^7.8.3",
     "@babel/preset-typescript": "^7.8.3",
@@ -23,6 +25,7 @@
     "@types/react": "^16.9.23",
     "@types/react-dom": "^16.9.5",
     "babel-loader": "^8.0.6",
+    "babel-plugin-css-modules-transform": "^1.6.2",
     "classnames": "^2.2.6",
     "css-loader": "^3.4.2",
     "mini-css-extract-plugin": "^0.9.0",
