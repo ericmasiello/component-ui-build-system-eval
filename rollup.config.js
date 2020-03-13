@@ -14,21 +14,21 @@ import resolve from '@rollup/plugin-node-resolve';
 import pkg from './package.json';
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx']
+const env = process.env.BABEL_ENV;
+
+const output = env === 'modern' ? {
+  file: pkg.module,
+  format: 'es',
+  sourcemap: true,
+} : {
+  file: pkg.main,
+  format: 'cjs',
+  sourcemap: true,
+};
 
 export default {
   input: 'src/index.ts',
-  output: [
-    {
-      file: pkg.main,
-      format: 'cjs',
-      sourcemap: true,
-    },
-    {
-      file: pkg.module,
-      format: 'es',
-      sourcemap: true,
-    },
-  ],
+  output,
   plugins: [
     resolve({ extensions }),
     babel({

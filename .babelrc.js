@@ -1,35 +1,41 @@
 module.exports = {
     presets: [
-        ['@babel/preset-env', {
-            loose: true,
-            shippedProposals: true,
-            modules: false,
-            targets: {
-              ie: 9,
-            },
-        }],
-        "@babel/preset-react",
-        "@babel/preset-typescript"
+        '@babel/preset-react',
+        '@babel/preset-typescript'
     ],
     plugins: [
-        "@babel/plugin-proposal-class-properties",
-        "@babel/plugin-proposal-object-rest-spread",
+        '@babel/plugin-proposal-class-properties',
+        '@babel/plugin-proposal-object-rest-spread',
         [
-            "css-modules-transform", {
-                "preprocessCss": "./css-module-transform.js",
-                "extensions": [".css", ".scss"],
-                "extractCss": {
-                    "dir": "./build/stylesheets/",
-                    "relativeRoot": "./src/",
-                    "filename": "[path]/[name].css"
+            'css-modules-transform', {
+                'preprocessCss': './css-module-transform.js',
+                'extensions': ['.css', '.scss'],
+                'extractCss': {
+                    'dir': './build/stylesheets/',
+                    'relativeRoot': './src/',
+                    'filename': '[path]/[name].css'
                 },
-                // "extractCss": "./build/main.css"
+                // Note: Uncomment the below line and comment out above extractCss
+                // if you want to create a single css bundle
+                // 'extractCss': './build/main.css'
             }
         ],
         // A plugin that enables the re-use of Babel's injected helper code to save on codesize.
         ['@babel/plugin-transform-runtime', {
             useESModules: true,
         }],
-    ]
+    ],
+    env: {
+        modern: {
+            presets: [
+                '@babel/preset-modules'
+            ]
+        },
+        legacy: {
+            presets: [
+                '@babel/preset-env'
+            ]
+        }
+    }
   };
   
